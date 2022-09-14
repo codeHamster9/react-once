@@ -1,18 +1,18 @@
-import { IUser, Pokemon } from "../interfaces/user.interface";
+import { IUser } from "../interfaces/user.interface";
 import styles from "../Users.module.css";
 import { FunctionComponent } from "react";
 
 interface IUserProps {
-  user: Pokemon;
+  user: IUser;
 }
 
 export const UserCard: FunctionComponent<IUserProps> = ({
-  user: { sprites, name },
+  user: { picture, name },
 }) => {
   return (
     <div>
-      <img src={sprites.front_default} alt="pic" />
-      <div className={styles.cardText}>{name}</div>
+      <img src={picture.medium} alt="pic" />
+      <div className={styles.cardText}>{name.first}</div>
     </div>
   );
 };

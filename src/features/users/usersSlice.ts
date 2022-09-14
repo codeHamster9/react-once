@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IUser, Pokemon } from "./interfaces/user.interface";
+import { IUser } from "./interfaces/user.interface";
 
 export enum EStatus {
   idle,
@@ -8,7 +8,7 @@ export enum EStatus {
 }
 
 interface IUsers {
-  users: Array<Pokemon>;
+  users: Array<IUser>;
   page: number;
   status: EStatus;
 }
@@ -36,10 +36,10 @@ export const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    appendUsers: (state, action: PayloadAction<Pokemon | undefined>) => {
+    appendUsers: (state, action: PayloadAction<IUser[] | undefined>) => {
       if (action.payload) {
-        state.users.push(action.payload);
-        state.page = Math.floor(Math.random() * 1000);
+        state.users.push(...action.payload);
+        state.page += 1;
       }
     },
   },
