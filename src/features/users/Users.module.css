@@ -1,0 +1,13 @@
+.cardText {
+    font-size: 18px;
+}
+
+.cardContainer {
+    display: flex;
+    max-width: 500px;
+    height: 300px;
+    overflow-y: auto;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 20px;
+}
